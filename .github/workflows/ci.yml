@@ -146,8 +146,11 @@ jobs:
       - name: Run migrations (testing)
         run: php artisan migrate --env=testing --force
 
-      - name: PHPUnit
+      - name: Run PHPUnit
         run: vendor/bin/phpunit
+
+      - name: Run Tests
+        run: php artisan test
 
   # ---------------------------------------------------------------------------
   # 3. JS quality: ESLint, Prettier check, Vite production build
