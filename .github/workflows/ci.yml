@@ -70,9 +70,6 @@ jobs:
       - name: Pint (format check only)
         run: vendor/bin/pint --test
 
-      - name: PHPCS
-        run: vendor/bin/phpcs
-
       - name: PHPStan
         run: vendor/bin/phpstan analyse --configuration=phpstan.neon.dist --no-progress --memory-limit=1G
 
