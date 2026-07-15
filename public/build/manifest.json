@@ -1,0 +1,868 @@
+{
+  "_ContactCard-B1bDz5Ob.js": {
+    "file": "assets/ContactCard-B1bDz5Ob.js",
+    "name": "ContactCard",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_FAQ-CayoVomO.js": {
+    "file": "assets/FAQ-CayoVomO.js",
+    "name": "FAQ",
+    "imports": [
+      "resources/js/app.js",
+      "_NavigateSecondary-BSGaf52V.js",
+      "_SectionHeader-CiTN-GBu.js"
+    ]
+  },
+  "_NavigateSecondary-BSGaf52V.js": {
+    "file": "assets/NavigateSecondary-BSGaf52V.js",
+    "name": "NavigateSecondary",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_PatnerMarquee-3GVTKWAR.js": {
+    "file": "assets/PatnerMarquee-3GVTKWAR.js",
+    "name": "PatnerMarquee",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "assets": [
+      "assets/bangladrop-D1YRtVKr.svg",
+      "assets/faspower-bnyLsESi.svg",
+      "assets/fast_auto-CnWz7bO1.svg",
+      "assets/hatbazar-CdrSgmyw.svg",
+      "assets/pixelax-Cy9e_Lk_.svg",
+      "assets/steadfast-iVIDWgxy.svg",
+      "assets/packly-CtX9rE6K.svg"
+    ]
+  },
+  "_Projects-i5lgqsRf.js": {
+    "file": "assets/Projects-i5lgqsRf.js",
+    "name": "Projects",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_SectionHeader-CiTN-GBu.js": {
+    "file": "assets/SectionHeader-CiTN-GBu.js",
+    "name": "SectionHeader",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_StartBuilding-D788DHFx.js": {
+    "file": "assets/StartBuilding-D788DHFx.js",
+    "name": "StartBuilding",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/StartBuilding-LIKahRSl.css"
+    ],
+    "assets": [
+      "assets/user_20-DuzcN_29.svg",
+      "assets/cntuser_1-wrav1q4b.svg",
+      "assets/cntuser_2-CAxeWMMJ.svg",
+      "assets/ele_icon_1-45lKNVuK.svg",
+      "assets/ele_icon_2-CX9vLZ9s.svg",
+      "assets/ele_icon_3-DEyj84KY.svg",
+      "assets/ele_icon_4-D40mKkfx.svg",
+      "assets/start_building-N5f3vMf8.svg"
+    ]
+  },
+  "_StartBuilding-LIKahRSl.css": {
+    "file": "assets/StartBuilding-LIKahRSl.css",
+    "src": "_StartBuilding-LIKahRSl.css"
+  },
+  "_TeamMemberCard-B6OA_Fym.js": {
+    "file": "assets/TeamMemberCard-B6OA_Fym.js",
+    "name": "TeamMemberCard",
+    "imports": [
+      "_linkEdin-0gtLXdxO.js",
+      "_pagination-IM9cMj8W.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/TeamMemberCard-DPfwLlXQ.css"
+    ],
+    "assets": [
+      "assets/about_3-Dfx2HVsh.png"
+    ]
+  },
+  "_TeamMemberCard-DPfwLlXQ.css": {
+    "file": "assets/TeamMemberCard-DPfwLlXQ.css",
+    "src": "_TeamMemberCard-DPfwLlXQ.css"
+  },
+  "_TestimonialSlider-D-8BvTpI.js": {
+    "file": "assets/TestimonialSlider-D-8BvTpI.js",
+    "name": "TestimonialSlider",
+    "imports": [
+      "_pagination-IM9cMj8W.js",
+      "resources/js/app.js"
+    ],
+    "assets": [
+      "assets/ecommerce-D1Ta6kvC.svg",
+      "assets/entertainment-Y8hX-5ow.svg",
+      "assets/tech-CmuVMKOe.svg",
+      "assets/digital_marketing-CiuBeoEr.svg",
+      "assets/healthcare-D3R4oFq5.svg",
+      "assets/travel_tourism-BW12Ccwm.svg",
+      "assets/education-TBVziQd7.svg",
+      "assets/real_estate-Dv5IQEY0.svg",
+      "assets/qute-BydfBZNT.svg"
+    ]
+  },
+  "_about_bg-CjkhxHli.js": {
+    "file": "assets/about_bg-CjkhxHli.js",
+    "name": "about_bg",
+    "assets": [
+      "assets/about_bg-RppmpNiu.svg"
+    ]
+  },
+  "_career_bg-DO8_JCEO.js": {
+    "file": "assets/career_bg-DO8_JCEO.js",
+    "name": "career_bg",
+    "assets": [
+      "assets/career_bg-ClHvBvLR.svg"
+    ]
+  },
+  "_career_img-Cki-Tjnz.js": {
+    "file": "assets/career_img-Cki-Tjnz.js",
+    "name": "career_img",
+    "assets": [
+      "assets/career_img-BaxMTNuF.png"
+    ]
+  },
+  "_linkEdin-0gtLXdxO.js": {
+    "file": "assets/linkEdin-0gtLXdxO.js",
+    "name": "linkEdin",
+    "assets": [
+      "assets/linkEdin-DCFs2Z7k.svg"
+    ]
+  },
+  "_pagination-DGoAdr57.css": {
+    "file": "assets/pagination-DGoAdr57.css",
+    "src": "_pagination-DGoAdr57.css"
+  },
+  "_pagination-IM9cMj8W.js": {
+    "file": "assets/pagination-IM9cMj8W.js",
+    "name": "pagination",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/pagination-DGoAdr57.css"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-BPBL78H5.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-C2Eppo_m.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/views/frontend/Home.vue",
+      "resources/js/views/frontend/About.vue",
+      "resources/js/views/frontend/Team.vue",
+      "resources/js/views/frontend/Projects.vue",
+      "resources/js/views/frontend/ProjectsDetails.vue",
+      "resources/js/views/frontend/Career.vue",
+      "resources/js/views/frontend/JobApply.vue",
+      "resources/js/views/frontend/CareerDetails.vue",
+      "resources/js/views/frontend/Blog.vue",
+      "resources/js/views/frontend/BlogDetails.vue",
+      "resources/js/views/frontend/Contact.vue",
+      "resources/js/views/frontend/services/Service.vue",
+      "resources/js/views/frontend/Success.vue",
+      "resources/js/views/errors/NotFound.vue"
+    ],
+    "css": [
+      "assets/app-CfGhewzB.css"
+    ],
+    "assets": [
+      "assets/logo-BSKf8d3r.svg",
+      "assets/whatsapp_24-DOWGfBVb.svg",
+      "assets/r_arw_primary_20-DbrcWfbA.svg",
+      "assets/database-DhEOFxcJ.svg",
+      "assets/mobile-BZGcwAS5.svg",
+      "assets/testing-BbQjqwNW.svg",
+      "assets/software-C9KGLlRA.svg",
+      "assets/ui_ux-DuT_MWpR.svg",
+      "assets/web-COncmxIt.svg",
+      "assets/logo_white-CEHcxkZq.svg",
+      "assets/facebooks-_TRD40IR.svg",
+      "assets/linkedine-DRUR-ca2.svg",
+      "assets/youtube-CyWr8Bh1.svg",
+      "assets/instagram-B_Wf88bU.svg",
+      "assets/footer_bg-DYA3sLJu.svg"
+    ]
+  },
+  "resources/js/assets/images/ab_1.png": {
+    "file": "assets/ab_1-2xFuxk5R.png",
+    "src": "resources/js/assets/images/ab_1.png"
+  },
+  "resources/js/assets/images/about_3.png": {
+    "file": "assets/about_3-Dfx2HVsh.png",
+    "src": "resources/js/assets/images/about_3.png"
+  },
+  "resources/js/assets/images/about_bg.svg": {
+    "file": "assets/about_bg-RppmpNiu.svg",
+    "src": "resources/js/assets/images/about_bg.svg"
+  },
+  "resources/js/assets/images/blog_1.svg": {
+    "file": "assets/blog_1--KiraH9m.svg",
+    "src": "resources/js/assets/images/blog_1.svg"
+  },
+  "resources/js/assets/images/blog_2.svg": {
+    "file": "assets/blog_2-BmEsGfaZ.svg",
+    "src": "resources/js/assets/images/blog_2.svg"
+  },
+  "resources/js/assets/images/blog_3.svg": {
+    "file": "assets/blog_3-BS4AsrJH.svg",
+    "src": "resources/js/assets/images/blog_3.svg"
+  },
+  "resources/js/assets/images/blog_4.svg": {
+    "file": "assets/blog_4-C7y4axpH.svg",
+    "src": "resources/js/assets/images/blog_4.svg"
+  },
+  "resources/js/assets/images/career.png": {
+    "file": "assets/career-CIeBvw4H.png",
+    "src": "resources/js/assets/images/career.png"
+  },
+  "resources/js/assets/images/career_bg.svg": {
+    "file": "assets/career_bg-ClHvBvLR.svg",
+    "src": "resources/js/assets/images/career_bg.svg"
+  },
+  "resources/js/assets/images/career_img.png": {
+    "file": "assets/career_img-BaxMTNuF.png",
+    "src": "resources/js/assets/images/career_img.png"
+  },
+  "resources/js/assets/images/cntuser_1.png": {
+    "file": "assets/cntuser_1-DAuwOm5U.png",
+    "src": "resources/js/assets/images/cntuser_1.png"
+  },
+  "resources/js/assets/images/cntuser_1.svg": {
+    "file": "assets/cntuser_1-wrav1q4b.svg",
+    "src": "resources/js/assets/images/cntuser_1.svg"
+  },
+  "resources/js/assets/images/cntuser_2.png": {
+    "file": "assets/cntuser_2-D7dJD0kv.png",
+    "src": "resources/js/assets/images/cntuser_2.png"
+  },
+  "resources/js/assets/images/cntuser_2.svg": {
+    "file": "assets/cntuser_2-CAxeWMMJ.svg",
+    "src": "resources/js/assets/images/cntuser_2.svg"
+  },
+  "resources/js/assets/images/detail_blog.svg": {
+    "file": "assets/detail_blog-DsylXeDc.svg",
+    "src": "resources/js/assets/images/detail_blog.svg"
+  },
+  "resources/js/assets/images/footer_bg.svg": {
+    "file": "assets/footer_bg-DYA3sLJu.svg",
+    "src": "resources/js/assets/images/footer_bg.svg"
+  },
+  "resources/js/assets/images/grbimage/hero_1.webp": {
+    "file": "assets/hero_1-C5X8oTkP.webp",
+    "src": "resources/js/assets/images/grbimage/hero_1.webp"
+  },
+  "resources/js/assets/images/grbimage/hero_2.webp": {
+    "file": "assets/hero_2-hjkJZfI2.webp",
+    "src": "resources/js/assets/images/grbimage/hero_2.webp"
+  },
+  "resources/js/assets/images/grbimage/hero_3.webp": {
+    "file": "assets/hero_3-ObbMKWS2.webp",
+    "src": "resources/js/assets/images/grbimage/hero_3.webp"
+  },
+  "resources/js/assets/images/grbimage/hero_4.webp": {
+    "file": "assets/hero_4-CxaVlAO9.webp",
+    "src": "resources/js/assets/images/grbimage/hero_4.webp"
+  },
+  "resources/js/assets/images/grbimage/hero_5.webp": {
+    "file": "assets/hero_5-B7fRamGV.webp",
+    "src": "resources/js/assets/images/grbimage/hero_5.webp"
+  },
+  "resources/js/assets/images/hero_bg.webp": {
+    "file": "assets/hero_bg-CWGkonFY.webp",
+    "src": "resources/js/assets/images/hero_bg.webp"
+  },
+  "resources/js/assets/images/icons/agil_team.svg": {
+    "file": "assets/agil_team-BG6Vri1O.svg",
+    "src": "resources/js/assets/images/icons/agil_team.svg"
+  },
+  "resources/js/assets/images/icons/client_centric.svg": {
+    "file": "assets/client_centric-BFHoar8Z.svg",
+    "src": "resources/js/assets/images/icons/client_centric.svg"
+  },
+  "resources/js/assets/images/icons/comprehensive_system.svg": {
+    "file": "assets/comprehensive_system-DZHn8tKs.svg",
+    "src": "resources/js/assets/images/icons/comprehensive_system.svg"
+  },
+  "resources/js/assets/images/icons/conversion_focused .svg": {
+    "file": "assets/conversion_focused -Cv-uIqf1.svg",
+    "src": "resources/js/assets/images/icons/conversion_focused .svg"
+  },
+  "resources/js/assets/images/icons/creative_team.svg": {
+    "file": "assets/creative_team-Ddv9hkA4.svg",
+    "src": "resources/js/assets/images/icons/creative_team.svg"
+  },
+  "resources/js/assets/images/icons/database.svg": {
+    "file": "assets/database-DhEOFxcJ.svg",
+    "src": "resources/js/assets/images/icons/database.svg"
+  },
+  "resources/js/assets/images/icons/design_system.svg": {
+    "file": "assets/design_system-AC8dKFYA.svg",
+    "src": "resources/js/assets/images/icons/design_system.svg"
+  },
+  "resources/js/assets/images/icons/digital_marketing.svg": {
+    "file": "assets/digital_marketing-CiuBeoEr.svg",
+    "src": "resources/js/assets/images/icons/digital_marketing.svg"
+  },
+  "resources/js/assets/images/icons/ecommerce.svg": {
+    "file": "assets/ecommerce-D1Ta6kvC.svg",
+    "src": "resources/js/assets/images/icons/ecommerce.svg"
+  },
+  "resources/js/assets/images/icons/education.svg": {
+    "file": "assets/education-TBVziQd7.svg",
+    "src": "resources/js/assets/images/icons/education.svg"
+  },
+  "resources/js/assets/images/icons/ele_icon_1.svg": {
+    "file": "assets/ele_icon_1-45lKNVuK.svg",
+    "src": "resources/js/assets/images/icons/ele_icon_1.svg"
+  },
+  "resources/js/assets/images/icons/ele_icon_2.svg": {
+    "file": "assets/ele_icon_2-CX9vLZ9s.svg",
+    "src": "resources/js/assets/images/icons/ele_icon_2.svg"
+  },
+  "resources/js/assets/images/icons/ele_icon_3.svg": {
+    "file": "assets/ele_icon_3-DEyj84KY.svg",
+    "src": "resources/js/assets/images/icons/ele_icon_3.svg"
+  },
+  "resources/js/assets/images/icons/ele_icon_4.svg": {
+    "file": "assets/ele_icon_4-D40mKkfx.svg",
+    "src": "resources/js/assets/images/icons/ele_icon_4.svg"
+  },
+  "resources/js/assets/images/icons/entertainment.svg": {
+    "file": "assets/entertainment-Y8hX-5ow.svg",
+    "src": "resources/js/assets/images/icons/entertainment.svg"
+  },
+  "resources/js/assets/images/icons/facebooks.svg": {
+    "file": "assets/facebooks-_TRD40IR.svg",
+    "src": "resources/js/assets/images/icons/facebooks.svg"
+  },
+  "resources/js/assets/images/icons/full_stack.svg": {
+    "file": "assets/full_stack-CMMOzd0f.svg",
+    "src": "resources/js/assets/images/icons/full_stack.svg"
+  },
+  "resources/js/assets/images/icons/healthcare.svg": {
+    "file": "assets/healthcare-D3R4oFq5.svg",
+    "src": "resources/js/assets/images/icons/healthcare.svg"
+  },
+  "resources/js/assets/images/icons/inovator.svg": {
+    "file": "assets/inovator-kEJQjJy5.svg",
+    "src": "resources/js/assets/images/icons/inovator.svg"
+  },
+  "resources/js/assets/images/icons/instagram.svg": {
+    "file": "assets/instagram-B_Wf88bU.svg",
+    "src": "resources/js/assets/images/icons/instagram.svg"
+  },
+  "resources/js/assets/images/icons/linkEdin.svg": {
+    "file": "assets/linkEdin-DCFs2Z7k.svg",
+    "src": "resources/js/assets/images/icons/linkEdin.svg"
+  },
+  "resources/js/assets/images/icons/linkedine.svg": {
+    "file": "assets/linkedine-DRUR-ca2.svg",
+    "src": "resources/js/assets/images/icons/linkedine.svg"
+  },
+  "resources/js/assets/images/icons/logo.svg": {
+    "file": "assets/logo-BSKf8d3r.svg",
+    "src": "resources/js/assets/images/icons/logo.svg"
+  },
+  "resources/js/assets/images/icons/logo_white.svg": {
+    "file": "assets/logo_white-CEHcxkZq.svg",
+    "src": "resources/js/assets/images/icons/logo_white.svg"
+  },
+  "resources/js/assets/images/icons/mission_icon_1.svg": {
+    "file": "assets/mission_icon_1-C9NteW2k.svg",
+    "src": "resources/js/assets/images/icons/mission_icon_1.svg"
+  },
+  "resources/js/assets/images/icons/mission_icon_2.svg": {
+    "file": "assets/mission_icon_2-BukUyvLH.svg",
+    "src": "resources/js/assets/images/icons/mission_icon_2.svg"
+  },
+  "resources/js/assets/images/icons/mobile.svg": {
+    "file": "assets/mobile-BZGcwAS5.svg",
+    "src": "resources/js/assets/images/icons/mobile.svg"
+  },
+  "resources/js/assets/images/icons/modern_scalable.svg": {
+    "file": "assets/modern_scalable-D3bWa4_4.svg",
+    "src": "resources/js/assets/images/icons/modern_scalable.svg"
+  },
+  "resources/js/assets/images/icons/problem_solver.svg": {
+    "file": "assets/problem_solver-BmGnbRrC.svg",
+    "src": "resources/js/assets/images/icons/problem_solver.svg"
+  },
+  "resources/js/assets/images/icons/qa_professional.svg": {
+    "file": "assets/qa_professional-BjHL2xic.svg",
+    "src": "resources/js/assets/images/icons/qa_professional.svg"
+  },
+  "resources/js/assets/images/icons/quality_driven.svg": {
+    "file": "assets/quality_driven-B-hzR5ZC.svg",
+    "src": "resources/js/assets/images/icons/quality_driven.svg"
+  },
+  "resources/js/assets/images/icons/qute.svg": {
+    "file": "assets/qute-BydfBZNT.svg",
+    "src": "resources/js/assets/images/icons/qute.svg"
+  },
+  "resources/js/assets/images/icons/r_arw_primary_20.svg": {
+    "file": "assets/r_arw_primary_20-DbrcWfbA.svg",
+    "src": "resources/js/assets/images/icons/r_arw_primary_20.svg"
+  },
+  "resources/js/assets/images/icons/real_estate.svg": {
+    "file": "assets/real_estate-Dv5IQEY0.svg",
+    "src": "resources/js/assets/images/icons/real_estate.svg"
+  },
+  "resources/js/assets/images/icons/research_driven_strategy.svg": {
+    "file": "assets/research_driven_strategy-Dq8QMWPR.svg",
+    "src": "resources/js/assets/images/icons/research_driven_strategy.svg"
+  },
+  "resources/js/assets/images/icons/software.svg": {
+    "file": "assets/software-C9KGLlRA.svg",
+    "src": "resources/js/assets/images/icons/software.svg"
+  },
+  "resources/js/assets/images/icons/tech.svg": {
+    "file": "assets/tech-CmuVMKOe.svg",
+    "src": "resources/js/assets/images/icons/tech.svg"
+  },
+  "resources/js/assets/images/icons/testing.svg": {
+    "file": "assets/testing-BbQjqwNW.svg",
+    "src": "resources/js/assets/images/icons/testing.svg"
+  },
+  "resources/js/assets/images/icons/thinker.svg": {
+    "file": "assets/thinker-BXk2iaAg.svg",
+    "src": "resources/js/assets/images/icons/thinker.svg"
+  },
+  "resources/js/assets/images/icons/tool_agnostic.svg": {
+    "file": "assets/tool_agnostic-6sv74LEC.svg",
+    "src": "resources/js/assets/images/icons/tool_agnostic.svg"
+  },
+  "resources/js/assets/images/icons/travel_tourism.svg": {
+    "file": "assets/travel_tourism-BW12Ccwm.svg",
+    "src": "resources/js/assets/images/icons/travel_tourism.svg"
+  },
+  "resources/js/assets/images/icons/ui_ux.svg": {
+    "file": "assets/ui_ux-DuT_MWpR.svg",
+    "src": "resources/js/assets/images/icons/ui_ux.svg"
+  },
+  "resources/js/assets/images/icons/user_20.svg": {
+    "file": "assets/user_20-DuzcN_29.svg",
+    "src": "resources/js/assets/images/icons/user_20.svg"
+  },
+  "resources/js/assets/images/icons/user_centered_design_approach.svg": {
+    "file": "assets/user_centered_design_approach-QvCH9Zb6.svg",
+    "src": "resources/js/assets/images/icons/user_centered_design_approach.svg"
+  },
+  "resources/js/assets/images/icons/web.svg": {
+    "file": "assets/web-COncmxIt.svg",
+    "src": "resources/js/assets/images/icons/web.svg"
+  },
+  "resources/js/assets/images/icons/whatsapp_24.svg": {
+    "file": "assets/whatsapp_24-DOWGfBVb.svg",
+    "src": "resources/js/assets/images/icons/whatsapp_24.svg"
+  },
+  "resources/js/assets/images/icons/youtube.svg": {
+    "file": "assets/youtube-CyWr8Bh1.svg",
+    "src": "resources/js/assets/images/icons/youtube.svg"
+  },
+  "resources/js/assets/images/john.png": {
+    "file": "assets/john-DSDWjRZh.png",
+    "src": "resources/js/assets/images/john.png"
+  },
+  "resources/js/assets/images/partner/bangladrop.svg": {
+    "file": "assets/bangladrop-D1YRtVKr.svg",
+    "src": "resources/js/assets/images/partner/bangladrop.svg"
+  },
+  "resources/js/assets/images/partner/faspower.svg": {
+    "file": "assets/faspower-bnyLsESi.svg",
+    "src": "resources/js/assets/images/partner/faspower.svg"
+  },
+  "resources/js/assets/images/partner/fast_auto.svg": {
+    "file": "assets/fast_auto-CnWz7bO1.svg",
+    "src": "resources/js/assets/images/partner/fast_auto.svg"
+  },
+  "resources/js/assets/images/partner/hatbazar.svg": {
+    "file": "assets/hatbazar-CdrSgmyw.svg",
+    "src": "resources/js/assets/images/partner/hatbazar.svg"
+  },
+  "resources/js/assets/images/partner/packly.svg": {
+    "file": "assets/packly-CtX9rE6K.svg",
+    "src": "resources/js/assets/images/partner/packly.svg"
+  },
+  "resources/js/assets/images/partner/pixelax.svg": {
+    "file": "assets/pixelax-Cy9e_Lk_.svg",
+    "src": "resources/js/assets/images/partner/pixelax.svg"
+  },
+  "resources/js/assets/images/partner/steadfast.svg": {
+    "file": "assets/steadfast-iVIDWgxy.svg",
+    "src": "resources/js/assets/images/partner/steadfast.svg"
+  },
+  "resources/js/assets/images/service_why_choose.svg": {
+    "file": "assets/service_why_choose-BUuVqcBM.svg",
+    "src": "resources/js/assets/images/service_why_choose.svg"
+  },
+  "resources/js/assets/images/start_building.svg": {
+    "file": "assets/start_building-N5f3vMf8.svg",
+    "src": "resources/js/assets/images/start_building.svg"
+  },
+  "resources/js/assets/images/team/tm_image_1.png": {
+    "file": "assets/tm_image_1-CIkunDv7.png",
+    "src": "resources/js/assets/images/team/tm_image_1.png"
+  },
+  "resources/js/assets/images/team/tm_image_2.png": {
+    "file": "assets/tm_image_2-CQwIHXk_.png",
+    "src": "resources/js/assets/images/team/tm_image_2.png"
+  },
+  "resources/js/assets/images/team/tm_image_3.png": {
+    "file": "assets/tm_image_3-CTXyKhAW.png",
+    "src": "resources/js/assets/images/team/tm_image_3.png"
+  },
+  "resources/js/assets/images/team/tm_image_4.png": {
+    "file": "assets/tm_image_4-MBJ3OTWx.png",
+    "src": "resources/js/assets/images/team/tm_image_4.png"
+  },
+  "resources/js/assets/images/team/tm_image_5.png": {
+    "file": "assets/tm_image_5-RC4ylEoB.png",
+    "src": "resources/js/assets/images/team/tm_image_5.png"
+  },
+  "resources/js/assets/images/team/tm_image_6.png": {
+    "file": "assets/tm_image_6-D6ryveaC.png",
+    "src": "resources/js/assets/images/team/tm_image_6.png"
+  },
+  "resources/js/assets/images/team/tm_image_7.png": {
+    "file": "assets/tm_image_5-RC4ylEoB.png",
+    "src": "resources/js/assets/images/team/tm_image_5.png"
+  },
+  "resources/js/assets/images/team_image.svg": {
+    "file": "assets/team_image-C1fCTZ07.svg",
+    "src": "resources/js/assets/images/team_image.svg"
+  },
+  "resources/js/assets/images/tech/clickup.svg": {
+    "file": "assets/clickup-B1Ahzqjj.svg",
+    "src": "resources/js/assets/images/tech/clickup.svg"
+  },
+  "resources/js/assets/images/tech/dart.svg": {
+    "file": "assets/dart-C69OUCpY.svg",
+    "src": "resources/js/assets/images/tech/dart.svg"
+  },
+  "resources/js/assets/images/tech/expressjs.svg": {
+    "file": "assets/expressjs-BCq7fJeH.svg",
+    "src": "resources/js/assets/images/tech/expressjs.svg"
+  },
+  "resources/js/assets/images/tech/figma.svg": {
+    "file": "assets/figma-Dhc2K9ZE.svg",
+    "src": "resources/js/assets/images/tech/figma.svg"
+  },
+  "resources/js/assets/images/tech/flutter.svg": {
+    "file": "assets/flutter-D6EOD02-.svg",
+    "src": "resources/js/assets/images/tech/flutter.svg"
+  },
+  "resources/js/assets/images/tech/jira.svg": {
+    "file": "assets/jira-HI3ccqQO.svg",
+    "src": "resources/js/assets/images/tech/jira.svg"
+  },
+  "resources/js/assets/images/tech/laravel.svg": {
+    "file": "assets/laravel-IA5Nypyl.svg",
+    "src": "resources/js/assets/images/tech/laravel.svg"
+  },
+  "resources/js/assets/images/tech/mysql.svg": {
+    "file": "assets/mysql-CibjylaL.svg",
+    "src": "resources/js/assets/images/tech/mysql.svg"
+  },
+  "resources/js/assets/images/tech/nextjs.svg": {
+    "file": "assets/nextjs-N4fUdmWA.svg",
+    "src": "resources/js/assets/images/tech/nextjs.svg"
+  },
+  "resources/js/assets/images/tech/react.svg": {
+    "file": "assets/react-Cv7zA5qs.svg",
+    "src": "resources/js/assets/images/tech/react.svg"
+  },
+  "resources/js/assets/images/tech/selenium.svg": {
+    "file": "assets/selenium-ByJ5qs-c.svg",
+    "src": "resources/js/assets/images/tech/selenium.svg"
+  },
+  "resources/js/assets/images/tech/slack.svg": {
+    "file": "assets/slack-CuC9BYJ9.svg",
+    "src": "resources/js/assets/images/tech/slack.svg"
+  },
+  "resources/js/assets/images/tech/typescript.svg": {
+    "file": "assets/typescript-bvNt0d5g.svg",
+    "src": "resources/js/assets/images/tech/typescript.svg"
+  },
+  "resources/js/assets/images/tech/vue.svg": {
+    "file": "assets/vue-W0Axj7lL.svg",
+    "src": "resources/js/assets/images/tech/vue.svg"
+  },
+  "resources/js/views/errors/NotFound.vue": {
+    "file": "assets/NotFound-p88mLtYi.js",
+    "name": "NotFound",
+    "src": "resources/js/views/errors/NotFound.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/About.vue": {
+    "file": "assets/About-CiylDAbP.js",
+    "name": "About",
+    "src": "resources/js/views/frontend/About.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_TeamMemberCard-B6OA_Fym.js",
+      "_career_img-Cki-Tjnz.js",
+      "_PatnerMarquee-3GVTKWAR.js",
+      "_about_bg-CjkhxHli.js",
+      "_pagination-IM9cMj8W.js",
+      "resources/js/app.js",
+      "_NavigateSecondary-BSGaf52V.js",
+      "_StartBuilding-D788DHFx.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "_linkEdin-0gtLXdxO.js"
+    ],
+    "css": [
+      "assets/About-SqG_1PpU.css"
+    ],
+    "assets": [
+      "assets/ab_1-2xFuxk5R.png",
+      "assets/problem_solver-BmGnbRrC.svg",
+      "assets/inovator-kEJQjJy5.svg",
+      "assets/thinker-BXk2iaAg.svg",
+      "assets/creative_team-Ddv9hkA4.svg",
+      "assets/qa_professional-BjHL2xic.svg",
+      "assets/agil_team-BG6Vri1O.svg",
+      "assets/tm_image_1-CIkunDv7.png",
+      "assets/tm_image_2-CQwIHXk_.png",
+      "assets/tm_image_3-CTXyKhAW.png",
+      "assets/tm_image_4-MBJ3OTWx.png",
+      "assets/tm_image_5-RC4ylEoB.png",
+      "assets/tm_image_6-D6ryveaC.png"
+    ]
+  },
+  "resources/js/views/frontend/Blog.vue": {
+    "file": "assets/Blog-BZK4KWYf.js",
+    "name": "Blog",
+    "src": "resources/js/views/frontend/Blog.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_career_bg-DO8_JCEO.js",
+      "_StartBuilding-D788DHFx.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "resources/js/app.js"
+    ],
+    "assets": [
+      "assets/blog_1--KiraH9m.svg",
+      "assets/blog_2-BmEsGfaZ.svg",
+      "assets/blog_3-BS4AsrJH.svg",
+      "assets/blog_4-C7y4axpH.svg"
+    ]
+  },
+  "resources/js/views/frontend/BlogDetails.vue": {
+    "file": "assets/BlogDetails-C0a9HN66.js",
+    "name": "BlogDetails",
+    "src": "resources/js/views/frontend/BlogDetails.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_career_bg-DO8_JCEO.js"
+    ],
+    "assets": [
+      "assets/blog_1--KiraH9m.svg",
+      "assets/detail_blog-DsylXeDc.svg",
+      "assets/john-DSDWjRZh.png",
+      "assets/blog_2-BmEsGfaZ.svg"
+    ]
+  },
+  "resources/js/views/frontend/Career.vue": {
+    "file": "assets/Career-2mDvhzD-.js",
+    "name": "Career",
+    "src": "resources/js/views/frontend/Career.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_career_bg-DO8_JCEO.js",
+      "_pagination-IM9cMj8W.js",
+      "resources/js/app.js",
+      "_PatnerMarquee-3GVTKWAR.js",
+      "_FAQ-CayoVomO.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "_NavigateSecondary-BSGaf52V.js"
+    ],
+    "css": [
+      "assets/Career-c3Cfnw5d.css"
+    ],
+    "assets": [
+      "assets/career-CIeBvw4H.png",
+      "assets/mission_icon_1-C9NteW2k.svg",
+      "assets/mission_icon_2-BukUyvLH.svg"
+    ]
+  },
+  "resources/js/views/frontend/CareerDetails.vue": {
+    "file": "assets/CareerDetails-eUandqbC.js",
+    "name": "CareerDetails",
+    "src": "resources/js/views/frontend/CareerDetails.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_linkEdin-0gtLXdxO.js",
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/Contact.vue": {
+    "file": "assets/Contact-g3bleeK1.js",
+    "name": "Contact",
+    "src": "resources/js/views/frontend/Contact.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_career_img-Cki-Tjnz.js",
+      "_career_bg-DO8_JCEO.js",
+      "_PatnerMarquee-3GVTKWAR.js",
+      "_ContactCard-B1bDz5Ob.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/Home.vue": {
+    "file": "assets/Home-DFCtCaG2.js",
+    "name": "Home",
+    "src": "resources/js/views/frontend/Home.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_StartBuilding-D788DHFx.js",
+      "_TestimonialSlider-D-8BvTpI.js",
+      "_NavigateSecondary-BSGaf52V.js",
+      "resources/js/app.js",
+      "_pagination-IM9cMj8W.js",
+      "_FAQ-CayoVomO.js",
+      "_ContactCard-B1bDz5Ob.js",
+      "_SectionHeader-CiTN-GBu.js"
+    ],
+    "css": [
+      "assets/Home-DU3KW6Li.css"
+    ],
+    "assets": [
+      "assets/cntuser_1-DAuwOm5U.png",
+      "assets/cntuser_2-D7dJD0kv.png",
+      "assets/team_image-C1fCTZ07.svg",
+      "assets/hero_bg-CWGkonFY.webp",
+      "assets/hero_1-C5X8oTkP.webp",
+      "assets/hero_5-B7fRamGV.webp",
+      "assets/hero_4-CxaVlAO9.webp",
+      "assets/hero_3-ObbMKWS2.webp",
+      "assets/hero_2-hjkJZfI2.webp",
+      "assets/design_system-AC8dKFYA.svg",
+      "assets/full_stack-CMMOzd0f.svg",
+      "assets/tool_agnostic-6sv74LEC.svg",
+      "assets/quality_driven-B-hzR5ZC.svg",
+      "assets/client_centric-BFHoar8Z.svg",
+      "assets/comprehensive_system-DZHn8tKs.svg",
+      "assets/laravel-IA5Nypyl.svg",
+      "assets/slack-CuC9BYJ9.svg",
+      "assets/react-Cv7zA5qs.svg",
+      "assets/nextjs-N4fUdmWA.svg",
+      "assets/vue-W0Axj7lL.svg",
+      "assets/expressjs-BCq7fJeH.svg",
+      "assets/selenium-ByJ5qs-c.svg",
+      "assets/mysql-CibjylaL.svg",
+      "assets/flutter-D6EOD02-.svg",
+      "assets/clickup-B1Ahzqjj.svg",
+      "assets/typescript-bvNt0d5g.svg",
+      "assets/figma-Dhc2K9ZE.svg",
+      "assets/jira-HI3ccqQO.svg",
+      "assets/dart-C69OUCpY.svg"
+    ]
+  },
+  "resources/js/views/frontend/JobApply.vue": {
+    "file": "assets/JobApply-rd8HJqFA.js",
+    "name": "JobApply",
+    "src": "resources/js/views/frontend/JobApply.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/Projects.vue": {
+    "file": "assets/Projects-CoSw2wUT.js",
+    "name": "Projects",
+    "src": "resources/js/views/frontend/Projects.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Projects-i5lgqsRf.js",
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/ProjectsDetails.vue": {
+    "file": "assets/ProjectsDetails-DW0wiD6a.js",
+    "name": "ProjectsDetails",
+    "src": "resources/js/views/frontend/ProjectsDetails.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_linkEdin-0gtLXdxO.js"
+    ]
+  },
+  "resources/js/views/frontend/Success.vue": {
+    "file": "assets/Success-iAWuL9oE.js",
+    "name": "Success",
+    "src": "resources/js/views/frontend/Success.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/frontend/Team.vue": {
+    "file": "assets/Team-CLMs7bO9.js",
+    "name": "Team",
+    "src": "resources/js/views/frontend/Team.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_linkEdin-0gtLXdxO.js",
+      "_TeamMemberCard-B6OA_Fym.js",
+      "_PatnerMarquee-3GVTKWAR.js",
+      "_about_bg-CjkhxHli.js",
+      "_StartBuilding-D788DHFx.js",
+      "resources/js/app.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "_ContactCard-B1bDz5Ob.js",
+      "_pagination-IM9cMj8W.js"
+    ]
+  },
+  "resources/js/views/frontend/services/Service.vue": {
+    "file": "assets/Service-BEE2NAnl.js",
+    "name": "Service",
+    "src": "resources/js/views/frontend/services/Service.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_TestimonialSlider-D-8BvTpI.js",
+      "_about_bg-CjkhxHli.js",
+      "_pagination-IM9cMj8W.js",
+      "resources/js/app.js",
+      "_StartBuilding-D788DHFx.js",
+      "_FAQ-CayoVomO.js",
+      "_SectionHeader-CiTN-GBu.js",
+      "_Projects-i5lgqsRf.js",
+      "_NavigateSecondary-BSGaf52V.js"
+    ],
+    "css": [
+      "assets/Service-98ilSf8I.css"
+    ],
+    "assets": [
+      "assets/service_why_choose-BUuVqcBM.svg",
+      "assets/user_centered_design_approach-QvCH9Zb6.svg",
+      "assets/conversion_focused -Cv-uIqf1.svg",
+      "assets/research_driven_strategy-Dq8QMWPR.svg",
+      "assets/modern_scalable-D3bWa4_4.svg"
+    ]
+  }
+}
