@@ -1,0 +1,103 @@
+# ============================================================================
+# CODEOWNERS — Application Repository
+# Location: place this file at .github/CODEOWNERS  (also valid: repo root
+# or docs/ — .github/ is the convention for enterprise repos)
+#
+# HOW IT WORKS
+# - When a PR touches a file, GitHub automatically requests review from the
+#   owners matched below and (with branch protection enabled) BLOCKS merge
+#   until each required owner group approves.
+# - ORDER MATTERS: the LAST matching pattern wins. Put broad rules first,
+#   specific overrides last.
+# - Team handles use the form @org/team-name. Replace "org" with your
+#   GitHub organization slug. Every team must have WRITE access to the repo
+#   or the rule is silently ignored.
+#
+# REQUIRED BRANCH PROTECTION (Settings → Branches → main):
+#   [x] Require a pull request before merging
+#   [x] Require review from Code Owners
+#   [x] Dismiss stale approvals when new commits are pushed
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# DEFAULT / CATCH-ALL
+# Any file not matched by a later rule requires Developer review. This
+# guarantees NOTHING merges without at least one accountable owner.
+# ----------------------------------------------------------------------------
+*                                   @nativedevsecops-org/dev-team
+
+# ----------------------------------------------------------------------------
+# SOURCE CODE — owned by Developers
+# Explicit rules for source directories, even though the catch-all already
+# covers them: being explicit survives future rule reordering and documents
+# intent for auditors.
+# ----------------------------------------------------------------------------
+/src/                               @nativedevsecops-org/dev-team
+/app/                               @nativedevsecops-org/dev-team
+/lib/                               @nativedevsecops-org/dev-team
+/public/                            @nativedevsecops-org/dev-team
+
+# Dependency manifests: developer-owned, since dependency changes alter the
+# application supply chain. (Consider adding @org/security-team here in a
+# stricter DevSecOps posture.)
+package.json                        @nativedevsecops-org/dev-team
+package-lock.json                   @nativedevsecops-org/dev-team
+composer.json                       @nativedevsecops-org/dev-team
+composer.lock                       @nativedevsecops-org/dev-team
+requirements.txt                    @nativedevsecops-org/dev-team
+go.mod                              @nativedevsecops-org/dev-team
+go.sum                              @nativedevsecops-org/dev-team
+
+# ----------------------------------------------------------------------------
+# TESTS — owned by QA
+# Any change to test code, fixtures, or end-to-end suites needs QA approval,
+# preventing developers from weakening or deleting tests to force a merge.
+# ----------------------------------------------------------------------------
+/tests/                             @org/qa-team
+/test/                              @org/qa-team
+/e2e/                               @org/qa-team
+/cypress/                           @org/qa-team
+/__tests__/                         @org/qa-team
+
+# Match test files that live NEXT TO source code rather than in a test dir.
+# ** matches across directory boundaries.
+**/*.test.js                        @org/qa-team
+**/*.spec.js                        @org/qa-team
+**/*.test.ts                        @org/qa-team
+**/*.spec.ts                        @org/qa-team
+**/*_test.go                        @org/qa-team
+**/test_*.py                        @org/qa-team
+
+# QA tool configuration — changing these can silently disable test runs
+jest.config.js                      @org/qa-team
+cypress.config.js                   @org/qa-team
+playwright.config.ts                @org/qa-team
+phpunit.xml                         @org/qa-team
+
+# ----------------------------------------------------------------------------
+# CI/CD & AUTOMATION — owned by DevOps
+# Workflows execute with repository credentials and can exfiltrate secrets
+# or deploy to production; they are the highest-risk files in the repo.
+# This rule is LAST among directory rules so it wins over the catch-all.
+# ----------------------------------------------------------------------------
+/.github/workflows/                 @nativedevsecops-org/devops-team
+
+# Composite actions and reusable workflow building blocks
+/.github/actions/                   @nativedevsecops-org/devops-team
+
+# Dependabot / renovate config controls automated dependency PRs
+/.github/dependabot.yml             @nativedevsecops-org/devops-team
+
+# Container build files change what ships to production
+Dockerfile                          @nativedevsecops-org/devops-team
+docker-compose.yml                  @nativedevsecops-org/devops-team
+docker-compose.*.yml                @nativedevsecops-org/devops-team
+/.dockerignore                      @nativedevsecops-org/devops-team
+
+# ----------------------------------------------------------------------------
+# SHARED OWNERSHIP — multiple teams required on one line means the PR needs
+# approval from BOTH teams (one approving member from each).
+# ----------------------------------------------------------------------------
+# This governance file itself: DevOps + Developers must both agree to change
+# who owns what. Protects against a single team rewriting the rules.
+/.github/CODEOWNERS                 @nativedevsecops-org/devops-team
