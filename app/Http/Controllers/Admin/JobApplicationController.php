@@ -34,7 +34,7 @@ class JobApplicationController extends Controller
                     'interview_date' => $application->interview_date,
                     'interview_mark' => $application->interview_mark,
                 ];
-    });
+            });
 
         return view('backend.job-applications.index', [
             'applications' => $applications,
