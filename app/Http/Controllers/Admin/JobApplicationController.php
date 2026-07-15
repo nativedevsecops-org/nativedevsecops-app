@@ -11,25 +11,30 @@ class JobApplicationController extends Controller
 {
     public function index()
     {
-        $applications = JobApplication::with('job')->latest()->get()->map(function ($application) {
-            return [
-                'id' => $application->id,
-                'job' => [
-                    'id' => $application->job->id,
-                    'name' => $application->job->name,
-                ],
-                'name' => $application->name,
-                'phone' => $application->phone,
-                'email' => $application->email,
-                'github' => $application->github,
-                'linkedin' => $application->linkedin,
-                'about' => $application->about,
-                'cv' => $application->cv,
-                'status' => $application->status,
-                'interview_date' => $application->interview_date,
-                'interview_mark' => $application->interview_mark,
-            ];
-        });
+        $applications = JobApplication::with('job')
+            ->latest()
+            ->get()
+            ->map(function (JobApplication $application): array {
+                return [
+                    'id' => $application->id,
+
+                    'job' => [
+                        'id' => $application->job?->id,
+                        'name' => $application->job?->name,
+                    ],
+
+                    'name' => $application->name,
+                    'phone' => $application->phone,
+                    'email' => $application->email,
+                    'github' => $application->github,
+                    'linkedin' => $application->linkedin,
+                    'about' => $application->about,
+                    'cv' => $application->cv,
+                    'status' => $application->status,
+                    'interview_date' => $application->interview_date,
+                    'interview_mark' => $application->interview_mark,
+                ];
+    });
 
         return view('backend.job-applications.index', [
             'applications' => $applications,

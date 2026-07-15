@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $name
+ *
+ * @property-read JobCircular $job
+ */
+
 class JobApplication extends Model
 {
     protected $fillable = [

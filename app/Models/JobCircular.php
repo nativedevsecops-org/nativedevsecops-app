@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property int $id
+ * @property string $name
+ */
 class JobCircular extends Model
 {
     protected $fillable = [
@@ -22,7 +26,7 @@ class JobCircular extends Model
         'about_company',
     ];
 
-    public function applications(): JobCircular|HasMany
+    public function applications(): HasMany
     {
         return $this->hasMany(JobApplication::class);
     }

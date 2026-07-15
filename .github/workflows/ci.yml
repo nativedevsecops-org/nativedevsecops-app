@@ -71,7 +71,7 @@ jobs:
         run: vendor/bin/pint --test
 
       - name: PHPStan
-        run: vendor/bin/phpstan analyse --memory-limit=512M
+        run: vendor/bin/phpstan analyse --memory-limit=1G
 
       - name: Deptrac
         run: vendor/bin/deptrac analyse --config-file=deptrac.yaml --no-progress
