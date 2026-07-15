@@ -71,7 +71,7 @@ jobs:
         run: vendor/bin/pint --test
 
       - name: PHPStan
-        run: vendor/bin/phpstan analyse --configuration=phpstan.neon.dist --no-progress --memory-limit=1G
+        run: vendor/bin/phpstan analyse --memory-limit=512M
 
       - name: Deptrac
         run: vendor/bin/deptrac analyse --config-file=deptrac.yaml --no-progress
@@ -106,7 +106,7 @@ jobs:
       DB_HOST: 127.0.0.1
       DB_PORT: "3306"
       DB_DATABASE: nativedevsecops_testing
-      DB_USERNAME: nativedevsecops_testing
+      DB_USERNAME: root
       DB_PASSWORD: ci_dummy_password   # test-only, non-sensitive
       CACHE_STORE: array
       SESSION_DRIVER: array
@@ -133,6 +133,10 @@ jobs:
 
       - name: Composer install
         run: composer install --prefer-dist --no-progress --no-interaction
+      
+
+      - name: Create environment file
+        run: cp .env.example .env
 
       # .env.testing repo-তে committed ধরে নেওয়া হয়েছে (APP_KEY ছাড়া)।
       # ⚠ VERIFY: .env.testing-এ APP_KEY আগে থেকে সেট থাকলে এই step বাদ দিতে পারো।
