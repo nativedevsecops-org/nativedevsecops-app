@@ -1,0 +1,110 @@
+# Local development environment for nativedevsecops-app
+# Laravel 12 + React (Vite) monolith on MySQL 8.
+#
+# IMPORTANT — verify against your actual Dockerfile before relying on this:
+#   1. The "app" service port mapping below assumes the container serves HTTP on
+#      port 80 (EXPOSE 80). If your Dockerfile exposes a different port, change
+#      the right-hand side of the "ports" mapping under app.
+#   2. This is a LOCAL DEV file only. It uses dummy/dev credentials that are safe
+#      to keep in the repo. Production credentials never live here — they come
+#      from AWS Secrets Manager via External Secrets Operator (Phase 9).
+#
+# Usage:
+#   docker compose up --build        # build image + start everything
+#   docker compose exec app sh       # shell into the app container
+#   docker compose down              # stop
+#   docker compose down -v           # stop + wipe DB volume (fresh start)
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nativedevsecops-org/nativedevsecops-app:dev
+    container_name: nativedevsecops-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"          # host 8080 -> container 80 ; open http://localhost:8080
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8080
+      # --- database (points at the "mysql" service below) ---
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: nativedevsecops
+      DB_USERNAME: nativedevsecops
+      DB_PASSWORD: secret        # dev-only dummy value; NOT a real credential
+      # --- mail (points at the "mailpit" service below) ---
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+      # --- queue: DB driver (Phase 9-এ RTM-A03 এর সিদ্ধান্ত অনুযায়ী; locked stack-এ Redis নেই) ---
+      QUEUE_CONNECTION: database
+    volumes:
+      # Live code mount for dev so you don't rebuild on every change.
+      # NOTE: vendor/ and node_modules stay inside the image (anonymous volumes
+      # below prevent the host from shadowing them).
+      - .:/var/www/html
+      - /var/www/html/vendor
+      - /var/www/html/node_modules
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - nativedevsecops
+
+  mysql:
+    image: mysql:8
+    container_name: nativedevsecops-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: nativedevsecops
+      MYSQL_USER: nativedevsecops
+      MYSQL_PASSWORD: secret          # dev-only dummy value
+      MYSQL_ROOT_PASSWORD: rootsecret # dev-only dummy value
+    ports:
+      - "3306:3306"        # optional: expose DB to host tools (TablePlus etc.)
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootsecret"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - nativedevsecops
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: nativedevsecops-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"          # open http://localhost:8081 to browse the DB
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - nativedevsecops
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: nativedevsecops-mailpit
+    restart: unless-stopped
+    ports:
+      - "8025:8025"        # web UI: http://localhost:8025 (catches all outgoing mail)
+      - "1025:1025"        # SMTP port the app sends to
+    networks:
+      - nativedevsecops
+
+volumes:
+  mysql-data:
+
+networks:
+  nativedevsecops:
+    driver: bridge

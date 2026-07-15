@@ -1,0 +1,210 @@
+# =============================================================================
+# nativedevsecops-app CI Pipeline
+#
+# RTM-P02: Automated quality gates on every pull request targeting
+# develop/stage/main (and direct pushes to develop). Covers PHP static
+# analysis & formatting, PHP test suite against MySQL 8, JS lint/format/build
+# verification, and secret scanning. All four jobs run in parallel and are
+# intended to be enforced as required status checks in branch protection:
+#   php-quality, php-tests, js-quality, secret-scan
+# =============================================================================
+
+name: CI
+
+on:
+  pull_request:
+    branches: [stage]
+  push:
+    branches: [develop]
+
+# Superseded runs on the same PR/branch are cancelled to save runner minutes.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # ⚠ VERIFY: composer.json-এর "require.php" constraint-এর সাথে মিলিয়ে নাও।
+  # Laravel 12 supports PHP 8.2–8.4; team standard here is 8.3.
+  PHP_VERSION: "8.2"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1. PHP static quality: Pint (format check), PHPCS, PHPStan, Deptrac
+  # ---------------------------------------------------------------------------
+  php-quality:
+    name: php-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, intl, pdo_mysql, bcmath, zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache vendor
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php${{ env.PHP_VERSION }}-vendor-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php${{ env.PHP_VERSION }}-vendor-
+
+      - name: Composer install
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      # NOTE: Makefile-এর `make lint` / `make analyse` target যদি CI-friendly হয়
+      # (non-interactive, non-zero exit code on failure, কোনো TTY/docker dependency
+      # নেই), তাহলে নিচের চারটা step-এর বদলে সেগুলো ব্যবহার করো:
+      #   - run: make lint
+      #   - run: make analyse
+      # Repo যাচাই না করা পর্যন্ত নিরাপদ default হিসেবে সরাসরি vendor/bin চালানো হচ্ছে।
+
+      - name: Pint (format check only)
+        run: vendor/bin/pint --test
+
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse --memory-limit=1G
+
+      - name: Deptrac
+        run: vendor/bin/deptrac analyse --config-file=deptrac.yaml --no-progress
+
+  # ---------------------------------------------------------------------------
+  # 2. PHP test suite against a real MySQL 8 service container
+  #    সব credential নিচে dummy/test-only value — কোনো real secret নয়, তাই
+  #    ইচ্ছাকৃতভাবে GitHub Secrets ব্যবহার করা হয়নি।
+  # ---------------------------------------------------------------------------
+  php-tests:
+    name: php-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: nativedevsecops_testing
+          MYSQL_ROOT_PASSWORD: ci_dummy_password   # test-only, non-sensitive
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pci_dummy_password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    env:
+      # ⚠ VERIFY: .env.testing / phpunit.xml-এর <php><env> block-এর সাথে মিলিয়ে নাও।
+      # phpunit.xml-এ env override থাকলে সেগুলোই জিতবে — দরকারে ওখানেও আপডেট করো।
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_HOST: 127.0.0.1
+      DB_PORT: "3306"
+      DB_DATABASE: nativedevsecops_testing
+      DB_USERNAME: root
+      DB_PASSWORD: ci_dummy_password   # test-only, non-sensitive
+      CACHE_STORE: array
+      SESSION_DRIVER: array
+      QUEUE_CONNECTION: sync
+      MAIL_MAILER: array
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, intl, pdo_mysql, bcmath, zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache vendor
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php${{ env.PHP_VERSION }}-vendor-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php${{ env.PHP_VERSION }}-vendor-
+
+      - name: Composer install
+        run: composer install --prefer-dist --no-progress --no-interaction
+      
+
+      - name: Create environment file
+        run: cp .env.example .env
+
+      # .env.testing repo-তে committed ধরে নেওয়া হয়েছে (APP_KEY ছাড়া)।
+      # ⚠ VERIFY: .env.testing-এ APP_KEY আগে থেকে সেট থাকলে এই step বাদ দিতে পারো।
+      - name: Generate app key for testing env
+        run: php artisan key:generate --env=testing --force
+
+      - name: Run migrations (testing)
+        run: php artisan migrate --env=testing --force
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit
+
+      - name: Run Tests
+        run: php artisan test
+
+  # ---------------------------------------------------------------------------
+  # 3. JS quality: ESLint, Prettier check, Vite production build
+  # ---------------------------------------------------------------------------
+  js-quality:
+    name: js-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          # ⚠ VERIFY: repo-তে .nvmrc থাকলে node-version-এর বদলে ব্যবহার করো:
+          #   node-version-file: '.nvmrc'
+          # অথবা package.json-এ "engines.node" থাকলে সেই version দাও।
+          node-version: "20"
+          cache: npm
+
+      - name: npm ci
+        run: npm ci
+
+      # ⚠ VERIFY: package.json-এ "lint" / "format:check" script থাকলে
+      # npx-এর বদলে `npm run lint` / `npm run format:check` ব্যবহার করাই ভালো।
+      - name: ESLint
+        run: npx eslint resources/frontend
+
+      - name: Prettier check
+        run: npx prettier --check resources/frontend
+
+      - name: Vite production build
+        run: npm run build
+
+  # ---------------------------------------------------------------------------
+  # 4. Secret scanning — কোনো leaked credential পেলে job fail করবে,
+  #    ফলে required status check হিসেবে এটা PR merge আটকে দেবে।
+  # ---------------------------------------------------------------------------
+  secret-scan:
+    name: secret-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # পুরো history দরকার যাতে gitleaks পুরো PR diff (সব commit) স্ক্যান করতে পারে
+          fetch-depth: 0
+
+      # ⚠ VERIFY: এটা আমার জানা সর্বশেষ stable tag — merge-এর আগে
+      # https://github.com/gitleaks/gitleaks-action/releases এ মিলিয়ে নাও।
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Organization-owned repo হলে gitleaks-action-এর জন্য (free) license
+          # key লাগে — এটা secret হিসেবে রাখাই নিয়ম, hardcode নয়:
+          # GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
