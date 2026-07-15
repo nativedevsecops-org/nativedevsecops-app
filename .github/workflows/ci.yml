@@ -1,5 +1,5 @@
 # =============================================================================
-# packly-app CI Pipeline
+# nativedevsecops-app CI Pipeline
 #
 # RTM-P02: Automated quality gates on every pull request targeting
 # develop/stage/main (and direct pushes to develop). Covers PHP static
@@ -28,7 +28,7 @@ permissions:
 env:
   # ⚠ VERIFY: composer.json-এর "require.php" constraint-এর সাথে মিলিয়ে নাও।
   # Laravel 12 supports PHP 8.2–8.4; team standard here is 8.3.
-  PHP_VERSION: "8.3"
+  PHP_VERSION: "8.2"
 
 jobs:
   # ---------------------------------------------------------------------------
@@ -92,7 +92,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_DATABASE: packly_testing
+          MYSQL_DATABASE: nativedevsecops_testing
           MYSQL_ROOT_PASSWORD: ci_dummy_password   # test-only, non-sensitive
         ports:
           - 3306:3306
@@ -108,9 +108,9 @@ jobs:
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
       DB_PORT: "3306"
-      DB_DATABASE: root
-      DB_USERNAME: root
-      DB_PASSWORD:    # test-only, non-sensitive
+      DB_DATABASE: nativedevsecops_testing
+      DB_USERNAME: nativedevsecops_testing
+      DB_PASSWORD: ci_dummy_password   # test-only, non-sensitive
       CACHE_STORE: array
       SESSION_DRIVER: array
       QUEUE_CONNECTION: sync
