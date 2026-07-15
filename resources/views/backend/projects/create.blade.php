@@ -1,0 +1,203 @@
+@extends('backend.layouts.dashboard')
+@section('title', 'Projects')
+
+@section('content')
+    <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="grid grid-cols-1 gap-x-5 gap-y-0 ">
+            <div>
+                <div class="form-group">
+                    <label>Category<span class="manitory">*</span></label>
+                    <select class="select" name="category_id" required>
+                        <option disabled selected>Select Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $category->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Title<span class="manitory">*</span></label>
+                    <input type="text" name="title" placeholder="Write Project Title" value="{{ old('title') }}" />
+                    @error('title')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>About Project <span class="manitory">*</span></label>
+                    <textarea name="about_project" id="" cols="30" rows="10" type="text"
+                        placeholder="Write About Project"></textarea>
+                    @error('about_project')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Business Result <span class="manitory">*</span></label>
+                    <textarea name="business_result" id="" cols="30" rows="10" type="text"
+                        placeholder="Write Business Result"></textarea>
+                    @error('business_result')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="">
+                <div class="form-group">
+                    <label class="text-base text-red-800"> Banner Image<span class="manitory">*</span></label>
+                    <div class="image-upload">
+                        <input type="file" name="banner_image" id="banner-image">
+                        <div class="image-uploads flex flex-col items-center justify-center">
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}" alt="img">
+                            <h4>Drag and drop a file to upload</h4>
+                        </div>
+                    </div>
+                    <span id="banner-file-name" class="mt-2 text-sm text-gray-600"></span>
+                    @error('banner_image')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="">
+                <div class="form-group">
+                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
+                        multiple images)</label>
+
+                    <div class="image-upload">
+                        <input type="file" name="gallery_image[]" id="gallery-image" multiple>
+                        <div class="image-uploads flex flex-col items-center justify-center">
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}" alt="img">
+                            <h4>Drag and drop a file to upload</h4>
+                        </div>
+                    </div>
+
+                    <div id="filePreview" class="mt-2 flex gap-4"></div>
+
+                    @error('gallery_image')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Challenge<span class="manitory">*</span></label>
+                    <textarea name="challenge" id="" cols="30" rows="10" type="text" placeholder="Write Challenge"></textarea>
+                    @error('challenge')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Solution<span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'solution',
+                        'value' => old('solution'),
+                        'placeholder' => 'Write solution...',
+                    ])
+                </div>
+                @error('solution')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Final Impact<span class="manitory">*</span></label>
+                    <textarea name="final_impact" id="" cols="30" rows="10" type="text"
+                        placeholder="Write Final Impact"></textarea>
+                    @error('final_impact')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Project Contributors<span class="manitory">*</span></label>
+                    <input type="text" name="contributors" placeholder="Write Project Contributors (comma separated)" />
+                    @error('contributors')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Project Platforms<span class="manitory">*</span></label>
+                    <input type="text" name="platforms" placeholder="Write Project Platforms (comma separated)" />
+                </div>
+                @error('platforms')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="">
+                <div class="flex justify-end mt-6">
+                    <button class="btn btn-submit mr-2">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+@endsection
+@push('scripts')
+    <script>
+        let selectedFiles = [];
+
+        document.getElementById('gallery-image').addEventListener('change', function() {
+
+            if (selectedFiles.length === 0) {
+                selectedFiles = [...this.files];
+            } else {
+                selectedFiles = [...selectedFiles, ...this.files];
+            }
+
+            renderFileList();
+            updateRealInput();
+        });
+
+        function renderFileList() {
+            const preview = document.getElementById('filePreview');
+            preview.innerHTML = '';
+
+            selectedFiles.forEach((file, index) => {
+                preview.innerHTML += `
+            <div class="flex justify-between items-center bg-gray-100 px-3 py-1 rounded gap-1">
+                <span>${file.name}</span>
+                <button type="button" class="remove-btn w-6 h-6 p-1 text-red-600 font-bold" data-index="${index}">
+                    ✕
+                </button>
+            </div>
+        `;
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-btn')) {
+                const index = e.target.getAttribute('data-index');
+                selectedFiles.splice(index, 1);
+
+                renderFileList();
+                updateRealInput();
+            }
+        });
+
+        function updateRealInput() {
+            const dt = new DataTransfer();
+            selectedFiles.forEach(file => dt.items.add(file));
+            document.getElementById('gallery-image').files = dt.files;
+        }
+
+
+
+        document.getElementById('banner-image').addEventListener('change', function(e) {
+            document.getElementById('banner-file-name').textContent = e.target.files[0]?.name || '';
+        });
+    </script>
+@endpush
